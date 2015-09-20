@@ -5,9 +5,9 @@
 - simple methods are usually best when analyzed with enough good data
    - this trumps more sophisticated methods
 - Obama campaign's data driven ground game
-    - use SQL database for analytics
-        - Vertica - use for fast "Speed of thought" queries
-    - Hadoop used as well for aggregated generations
+  - use SQL database for analytics
+    - Vertica - use for fast "Speed of thought" queries
+  - Hadoop used as well for aggregated generations
 
 ## Hurricane Sandy
 - twitter data used to follow power outages
