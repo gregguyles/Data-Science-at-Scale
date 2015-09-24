@@ -202,4 +202,71 @@
   - representing matrices in DBs sounds odd but can be a good idea and matrix operations can be performed
   - Christian Grant, MADSkills
 
-  
+
+#4. Related Topics
+## A Forth Paradigm of Science
+- "eScience" = "Data Science
+- Science has moved from empirical observations to theoretical models to theoretical computation
+- in the last 10 years - a new field of inquiry, creating and mining huge datasets
+- Empirical, Theoretical, Computational eScience
+- Science is about asking questions
+	- traditionally "Query the world"
+	- eScience: "Download the world"
+- The cost of finding, integrating and analyzing data, then communicating results, is the new bottleneck
+
+## Data-Intensive Science Examples
+- Large Synoptic Survey telescope
+  - returning to the same area of the sky allowing for comparison over time
+- In life sciences high throughput sequences can produce 1TB/day
+- Ocenography: NSF ocean observations initiative
+- The web: 20+ billion web pages
+- eScience is about the analysis of data
+  - automated or semi-automated extraction of knowledge from massive volumes of data
+  - not just a matter of volume
+- 3 V's
+  - volume: rows/bytes
+  - variety: columns/dimensions/sources
+  - Velocity: number of rows/bytes per unit of time
+- Another  V:
+  - Veracity: can we trust the data
+- Summary
+  - Science is in the midst of a generational shift form data-poor to data-rich enterprise
+  - analysis has replaced data acquisition
+  - Business is beginning to look a lot like science
+    - acquiring and keeping data
+    - making empirical decisions
+
+## Big Data and the 3Vs
+- Volume, Velocity, Variety
+- Velocity: latency of data processing relative to the growing demand for interactivity
+- Variety: diversity of sources, formats, quality, structures
+- Big Data
+  - "Big Data is any data that tis expensive to manage and hard to extract value from"
+    - Michael Franklin, Berkeley
+  - temptation to throw up a large number - while this might in fact actually be manageable
+- History of the term "Big Data"
+  - "The keepers of big data say they do it for the consumer's benefit. But data have a way of being used for purposes other that originally intended."
+    - Erik Larson, Harper's mag, 1989
+    - key point: data used in ways other that originally intended
+    - Larson was speaking about the monitoring of consumer data
+- 3V's attributed to Doug Lanely, Gartner
+  - On Volume: lower cost of e-channels let to up to 10x the quantity of data about an individual transaction
+  - On Velocity: increased point of interaction speed
+  - On Variety: no greater barrier to effective data management than incompatible formats, non-aligned structures and inconsistent semantics
+
+## Big Data Sources
+- "big Data...and the next wave for infraStress" - John Mashey
+- IO interface is not keeping up with the need to access the data quickly
+- "...the necessity of grappling with Big Data... is now a key theme in all sciences - arguably the key scientific theme of out times."
+    - Francis Diebold
+- Where does big data come from
+  - "data exhaust" from customers - tracking every point that can be recoded
+  - New and pervasive sensors
+  - ability to "keep everything" due to increased storage resources
+- Sensors
+  - "black boxes" for cars
+  - used for crashes and for insurance
+  - HydroSense/ElectriSense - monitor consummation of home reassures
+    - monitors use of water by recording the recognizable pressure change from the main line
+    - similar process for monitoring electrical usage
+    - 1 sensor can detect all the usage points
