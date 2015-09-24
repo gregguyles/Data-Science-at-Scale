@@ -92,19 +92,22 @@
     - operations can be chained together
 
 ### Operators
-  - union ∪   (222a)
-  - intersection ∩ (2229)
-  - difference - 
-  - Selection σ (3c3)
-  - Projection ∏ (220f)
-  - Join ⋈ (22c8)
-  - Extended RA
-    - Duplicate elimination d
-    - grouping and aggregation g
-    - sorting t
-  - Mainly: set operations + selection, projection, join
+- union ∪   (222a)
+- intersection ∩ (2229)
+- difference - 
+- Selection σ (3c3)
+- Projection ∏ (220f)
+- Join ⋈ (22c8)
+  - left outer join ⟕  (27d5)
+  - right outer join ⟖  (27d6)
+  - full outer join ⟗  (27d7) 
+- Extended RA
+  - Duplicate elimination d
+  - grouping and aggregation g
+  - sorting t
+- Mainly: set operations + selection, projection, join
 
-## RA Operators: Union, Difference, Selection
+# RA Operators
 - Sets vs Bags
   - Sets - no duplicates
   - bags - duplicates allowed
@@ -148,3 +151,72 @@ SELECT * FROM R2
   - σ<sub>Name</sub> = "Smith"(Employee)
 - the condition c can be any equal/grater/less than condition, any boolean function, any arbitrary function that returns a boolean
 
+### Project
+- eliminates columns
+  - Removes all columns that aren't explicitly listed AND removes all duplicates that might remain
+- ∏<sub>A1,...,An</sub>(R)
+- i.e. project on to SSN and Name out of Employee
+  - ∏<sub>SSN, Name</sub>(Employee)
+  - result: (SSN, Name)
+  - set semantics will remove any duplicate tuples
+  - bag semantics will include all duplicate tuples
+    - more efficient than set semantics
+
+### Cross Product
+- for every combination of tuples in R1 an R2 produce a tuple in the output
+- |R1| x |R2| = |R1 x R2|
+- Find all pairs of similar image/tweets/songs,
+  - compute the cross product, then compute a similarity function f(x1,x2) for every pair
+ 
+### Join
+- most common form is Equi-join
+- for every record in R1 find corresponding record in R2 that satisfies some condition
+- R1 ⋈<sub>A=B</sub> R2 = σ<sub>A=B</sub>(R1 x R2)
+- 2 notations in SQL
+
+```
+SELECT *
+FROM R1, R2
+WHERE R1.A = R2.B
+```
+
+```
+SELECT *
+FROM R1 JOIN R2
+ON R1.A = R2.B
+```
+
+### Outer Join
+- Include tuples with no matches in the output
+- use NULL values for mission attributes
+  - pad out missing values with NULL
+- R1 ⟕  R2 (left outer)
+  - set of all combinations of tuples in R1 and R2 that are equal on their common attribute names, in addition to tuples in R1 that have no matching tuples in R2 (missing values are NULL padded)
+- SQLite not able to do full outer joins
+
+### Theta Join
+- A join that involves a predicate
+- R1 ⋈<sub>θ</sub> R2 = σ<sub>θ</sub>(R1 x R2)
+- θ (3b8) can be any condition
+- i.e. 1
+  - Find all hospitals within 5 miles of a school
+  - ∏<sub>name</sub>(Hospitals ⋈<sub>distance(location, location) < 5 </sub>Schools)
+  - assumes user defined function "distance"
+
+```
+SELECT DISTINCT h.names
+FROM Hospitals h, Schools s
+WHERE distance(h.location, s.location) < 5
+```
+
+- i.e. 2
+  - find all user clicks made within 5 seconds of a page load
+  - Clicks ⋈<sub>abs(click_time - load_time) < 5</sub>PageLoads
+
+```
+SELECT *
+FROM Clicks c, PageLoads p
+WHERE abs(c.click_time - p.load_time) < 5
+```
+- Band join and range joins
+  - find tuples from one table within an interval or range defined by another table
